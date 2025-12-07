@@ -1,26 +1,61 @@
 {
-  "name": "aegis-lang",
-  "publisher": "ikigami",
-  "displayName": "Aegis",
-  "description": "Support for the Aegis scripting language",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "*"
-  },
-  "categories": [
-    "Programming Languages"
-  ],
-  "contributes": {
-    "languages": [{
-      "id": "aegis",
-      "aliases": ["Aegis", "aegis"],
-      "extensions": [".aeg"],
-      "configuration": "./language-configuration.json" 
-    }],
-    "grammars": [{
-      "language": "aegis",
-      "scopeName": "source.aegis",
-      "path": "./syntaxes/aegis.tmLanguage.json"
-    }]
-  }
+    "name": "aegis-lang",
+    "displayName": "Aegis",
+    "description": "Support complet pour Aegis (LSP)",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:aegis"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "languages": [{
+            "id": "aegis",
+            "aliases": ["Aegis", "aegis"],
+            "extensions": [".aeg"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "aegis",
+            "scopeName": "source.aegis",
+            "path": "./syntaxes/aegis.tmLanguage.json"
+        }],
+        "configuration": {
+            "type": "object",
+            "title": "Aegis configuration",
+            "properties": {
+                "aegis.serverPath": {
+                "type": "string",
+                "default": "aegis_lsp",
+                "description": "Chemin absolu ou commande vers l'exécutable du serveur LSP (aegis_lsp)"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.10",
+        "@types/node": "22.x",
+        "@types/vscode": "^1.75.0",
+        "@vscode/test-cli": "^0.0.12",
+        "@vscode/test-electron": "^2.5.2",
+        "eslint": "^9.39.1",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.48.1"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^9.0.1"
+    }
 }

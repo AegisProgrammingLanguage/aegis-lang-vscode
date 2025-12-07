@@ -12,8 +12,8 @@
 		{ "include": "#types" },
 		{ "include": "#functions" },
 		{ "include": "#classes" },
-		{ "include": "#operators" },
 		{ "include": "#decorators" },
+		{ "include": "#operators" },
 		{ "include": "#variables" }
 	],
 	"repository": {
@@ -64,6 +64,22 @@
 				}
 			]
 		},
+		"storage": {
+			"patterns": [
+				{
+					"name": "storage.type.var.aegis",
+					"match": "\\b(var)\\b"
+				},
+				{
+					"name": "storage.type.function.aegis",
+					"match": "\\b(func)\\b"
+				},
+				{
+					"name": "storage.type.class.aegis",
+					"match": "\\b(class|namespace|extends)\\b"
+				}
+			]
+		},
 		"keywords": {
 			"patterns": [
 				{
@@ -80,7 +96,7 @@
 				},
 				{
 					"name": "keyword.control.import.aegis",
-					"match": "\\b(import|extern)\\b"
+					"match": "\\b(import)\\b"
 				},
 				{
 					"name": "keyword.control.flow.aegis",
@@ -93,22 +109,6 @@
 				{
 					"name": "keyword.other.aegis",
 					"match": "\\b(print|input)\\b"
-				}
-			]
-		},
-		"storage": {
-			"patterns": [
-				{
-					"name": "storage.type.var.aegis",
-					"match": "\\b(var)\\b"
-				},
-				{
-					"name": "storage.type.function.aegis",
-					"match": "\\b(func)\\b"
-				},
-				{
-					"name": "storage.type.class.aegis",
-					"match": "\\b(class|namespace|extends)\\b"
 				}
 			]
 		},
@@ -157,7 +157,7 @@
 				},
 				{
 					"name": "keyword.operator.comparison.aegis",
-					"match": "(==|!=|<|>|<=|>=)"
+					"match": "(==|!=|<=|>=|<|>)"
 				},
 				{
 					"name": "keyword.operator.logical.aegis",
@@ -165,7 +165,7 @@
 				},
 				{
 					"name": "keyword.operator.bitwise.aegis",
-					"match": "(&|\\||\\^|<<|>>)"
+					"match": "(<<|>>|&|\\||\\^)"
 				},
 				{
 					"name": "storage.type.function.arrow.aegis",
