@@ -1,0 +1,26 @@
+{
+  "name": "aegis-lang",
+  "publisher": "ikigami",
+  "displayName": "Aegis",
+  "description": "Support for the Aegis scripting language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "aegis",
+      "aliases": ["Aegis", "aegis"],
+      "extensions": [".aeg"],
+      "configuration": "./language-configuration.json" 
+    }],
+    "grammars": [{
+      "language": "aegis",
+      "scopeName": "source.aegis",
+      "path": "./syntaxes/aegis.tmLanguage.json"
+    }]
+  }
+}
