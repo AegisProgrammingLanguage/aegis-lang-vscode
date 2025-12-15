@@ -1,181 +1,189 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Aegis",
-	"scopeName": "source.aegis",
-	"patterns": [
-		{ "include": "#comments" },
-		{ "include": "#strings" },
-		{ "include": "#numbers" },
-		{ "include": "#constants" },
-		{ "include": "#storage" },
-		{ "include": "#keywords" },
-		{ "include": "#types" },
-		{ "include": "#functions" },
-		{ "include": "#classes" },
-		{ "include": "#decorators" },
-		{ "include": "#operators" },
-		{ "include": "#variables" }
-	],
-	"repository": {
-		"comments": {
-			"patterns": [
-				{
-					"name": "comment.line.double-slash.aegis",
-					"match": "//.*$"
-				}
-			]
-		},
-		"strings": {
-			"name": "string.quoted.double.aegis",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.aegis",
-					"match": "\\\\."
-				},
-				{
-					"name": "meta.embedded.line.aegis",
-					"begin": "\\$\\{",
-					"end": "\\}",
-					"patterns": [
-						{ "include": "$self" }
-					]
-				}
-			]
-		},
-		"numbers": {
-			"name": "constant.numeric.aegis",
-			"match": "\\b\\d+(\\.\\d+)?\\b"
-		},
-		"constants": {
-			"patterns": [
-				{
-					"name": "constant.language.boolean.aegis",
-					"match": "\\b(true|false)\\b"
-				},
-				{
-					"name": "constant.language.null.aegis",
-					"match": "\\b(null)\\b"
-				},
-				{
-					"name": "variable.language.this.aegis",
-					"match": "\\b(this)\\b"
-				}
-			]
-		},
-		"storage": {
-			"patterns": [
-				{
-					"name": "storage.type.var.aegis",
-					"match": "\\b(var)\\b"
-				},
-				{
-					"name": "storage.type.function.aegis",
-					"match": "\\b(func)\\b"
-				},
-				{
-					"name": "storage.type.class.aegis",
-					"match": "\\b(class|namespace|extends)\\b"
-				}
-			]
-		},
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control.conditional.aegis",
-					"match": "\\b(if|else|switch|case|default)\\b"
-				},
-				{
-					"name": "keyword.control.loop.aegis",
-					"match": "\\b(while|for|break)\\b"
-				},
-				{
-					"name": "keyword.control.exception.aegis",
-					"match": "\\b(try|catch)\\b"
-				},
-				{
-					"name": "keyword.control.import.aegis",
-					"match": "\\b(import)\\b"
-				},
-				{
-					"name": "keyword.control.flow.aegis",
-					"match": "\\b(return)\\b"
-				},
-				{
-					"name": "keyword.operator.new.aegis",
-					"match": "\\b(new)\\b"
-				},
-				{
-					"name": "keyword.other.aegis",
-					"match": "\\b(print|input)\\b"
-				}
-			]
-		},
-		"types": {
-			"name": "support.type.primitive.aegis",
-			"match": "\\b(int|float|string|bool|void|any|list|dict)\\b"
-		},
-		"functions": {
-			"patterns": [
-				{
-					"match": "\\b(func)\\s+([a-zA-Z_]\\w*)",
-					"captures": {
-						"1": { "name": "storage.type.function.aegis" },
-						"2": { "name": "entity.name.function.definition.aegis" }
-					}
-				},
-				{
-					"match": "\\b([a-zA-Z_]\\w*)\\s*(?=\\()",
-					"name": "entity.name.function.call.aegis"
-				}
-			]
-		},
-		"classes": {
-			"match": "\\b(class|namespace)\\s+([a-zA-Z_]\\w*)",
-			"captures": {
-				"1": { "name": "storage.type.class.aegis" },
-				"2": { "name": "entity.name.type.class.aegis" }
-			}
-		},
-		"decorators": {
-			"name": "meta.decorator.aegis",
-			"match": "@\\w+",
-			"captures": {
-				"0": { "name": "entity.name.function.decorator.aegis" }
-			}
-		},
-		"operators": {
-			"patterns": [
-				{
-					"name": "keyword.operator.arithmetic.aegis",
-					"match": "(\\+|\\-|\\*|\\/|%)"
-				},
-				{
-					"name": "keyword.operator.assignment.aegis",
-					"match": "(=|\\+=|\\-=|\\*=|\\/=|\\+\\+|\\-\\-)"
-				},
-				{
-					"name": "keyword.operator.comparison.aegis",
-					"match": "(==|!=|<=|>=|<|>)"
-				},
-				{
-					"name": "keyword.operator.logical.aegis",
-					"match": "(&&|\\|\\||!)"
-				},
-				{
-					"name": "keyword.operator.bitwise.aegis",
-					"match": "(<<|>>|&|\\||\\^)"
-				},
-				{
-					"name": "storage.type.function.arrow.aegis",
-					"match": "->"
-				}
-			]
-		},
-		"variables": {
-			"name": "variable.other.readwrite.aegis",
-			"match": "\\b[a-zA-Z_]\\w*\\b"
-		}
-	}
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Aegis",
+    "scopeName": "source.aegis",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#numbers" },
+        { "include": "#constants" },
+        { "include": "#storage" },
+        { "include": "#keywords" },
+        { "include": "#types" },
+        { "include": "#functions" },
+        { "include": "#classes" },
+        { "include": "#decorators" },
+        { "include": "#operators" },
+        { "include": "#variables" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.aegis",
+                    "match": "//.*$"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.aegis",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.aegis",
+                    "match": "\\\\."
+                },
+                {
+                    "name": "meta.embedded.line.aegis",
+                    "begin": "\\$\\{",
+                    "end": "\\}",
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                }
+            ]
+        },
+        "numbers": {
+            "name": "constant.numeric.aegis",
+            "match": "\\b\\d+(\\.\\d+)?\\b"
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.aegis",
+                    "match": "\\b(true|false)\\b"
+                },
+                {
+                    "name": "constant.language.null.aegis",
+                    "match": "\\b(null)\\b"
+                },
+                {
+                    "name": "variable.language.this.aegis",
+                    "match": "\\b(this|super)\\b"
+                }
+            ]
+        },
+        "storage": {
+            "patterns": [
+                {
+                    "name": "storage.type.var.aegis",
+                    "match": "\\b(var|const)\\b"
+                },
+                {
+                    "name": "storage.type.function.aegis",
+                    "match": "\\b(func)\\b"
+                },
+                {
+                    "name": "storage.type.class.aegis",
+                    "match": "\\b(class|interface|enum|namespace)\\b"
+                },
+                {
+                    "name": "storage.modifier.access.aegis",
+                    "match": "\\b(public|private|protected)\\b"
+                },
+                {
+                    "name": "storage.modifier.aegis",
+                    "match": "\\b(static|final|extends|implements)\\b"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.conditional.aegis",
+                    "match": "\\b(if|else|switch|case|default)\\b"
+                },
+                {
+                    "name": "keyword.control.loop.aegis",
+                    "match": "\\b(while|foreach|in|break|continue)\\b"
+                },
+                {
+                    "name": "keyword.control.exception.aegis",
+                    "match": "\\b(try|catch|throw)\\b"
+                },
+                {
+                    "name": "keyword.control.import.aegis",
+                    "match": "\\b(import)\\b"
+                },
+                {
+                    "name": "keyword.control.flow.aegis",
+                    "match": "\\b(return)\\b"
+                },
+                {
+                    "name": "keyword.operator.new.aegis",
+                    "match": "\\b(new)\\b"
+                },
+                {
+                    "name": "keyword.other.aegis",
+                    "match": "\\b(print|input)\\b"
+                }
+            ]
+        },
+        "types": {
+            "name": "support.type.primitive.aegis",
+            "match": "\\b(int|float|string|bool|void|any|list|dict)\\b"
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "match": "\\b(func)\\s+([a-zA-Z_]\\w*)",
+                    "captures": {
+                        "1": { "name": "storage.type.function.aegis" },
+                        "2": { "name": "entity.name.function.definition.aegis" }
+                    }
+                },
+                {
+                    "match": "\\b([a-zA-Z_]\\w*)\\s*(?=\\()",
+                    "name": "entity.name.function.call.aegis"
+                }
+            ]
+        },
+        "classes": {
+            "match": "\\b(class|interface|enum|namespace)\\s+([a-zA-Z_]\\w*)",
+            "captures": {
+                "1": { "name": "storage.type.class.aegis" },
+                "2": { "name": "entity.name.type.class.aegis" }
+            }
+        },
+        "decorators": {
+            "name": "meta.decorator.aegis",
+            "match": "@\\w+",
+            "captures": {
+                "0": { "name": "entity.name.function.decorator.aegis" }
+            }
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.arithmetic.aegis",
+                    "match": "(\\+|\\-|\\*|\\/|%)"
+                },
+                {
+                    "name": "keyword.operator.assignment.aegis",
+                    "match": "(=|\\+=|\\-=|\\*=|\\/=|\\+\\+|\\-\\-)"
+                },
+                {
+                    "name": "keyword.operator.comparison.aegis",
+                    "match": "(==|!=|<=|>=|<|>)"
+                },
+                {
+                    "name": "keyword.operator.logical.aegis",
+                    "match": "(&&|\\|\\||!)"
+                },
+                {
+                    "name": "keyword.operator.bitwise.aegis",
+                    "match": "(<<|>>|&|\\||\\^)"
+                },
+                {
+                    "name": "storage.type.function.arrow.aegis",
+                    "match": "->"
+                }
+            ]
+        },
+        "variables": {
+            "name": "variable.other.readwrite.aegis",
+            "match": "\\b[a-zA-Z_]\\w*\\b"
+        }
+    }
 }
